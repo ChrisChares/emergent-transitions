@@ -17,7 +17,7 @@
     if ( self.isPresenting ) {
         return 0.5;
     } else {
-        return 0.0;
+        return 0.5;
     }
     
 }
@@ -27,12 +27,12 @@
     
     if (self.isPresenting) {
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
-        toView.frame = [[transitionContext containerView] bounds];
         toView.alpha = 0.0;
-        [[transitionContext containerView] addSubview:toView];
+ 
         
         POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
         alphaAnimation.toValue = @(1.0);
+        alphaAnimation.duration = [self transitionDuration:transitionContext];
         [alphaAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
             [transitionContext completeTransition:YES];
         }];
@@ -42,18 +42,29 @@
         
         UIView *presentedView = [transitionContext viewForKey:UITransitionContextFromViewKey];
         
-        POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
-        alphaAnimation.toValue = @(0.0);
-        [alphaAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+            
+            presentedView.alpha = 0.0;
+            
+        } completion:^(BOOL finished) {
             [transitionContext completeTransition:YES];
-            [presentedView removeFromSuperview];
         }];
-        [presentedView pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
+        
+//        POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
+//        alphaAnimation.toValue = @(0.0);
+//        alphaAnimation.duration = [self transitionDuration:transitionContext];
+//        [alphaAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
+//            [transitionContext completeTransition:YES];
+//            [presentedView removeFromSuperview];
+//        }];
+//        [presentedView pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
         
     }
-    
-    
-
 }
+
+//- (void)animationEnded:(BOOL)transitionCompleted
+//{
+//    
+//}
 
 @end

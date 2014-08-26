@@ -12,4 +12,6 @@
 
 @property UIView *animatedView;
 
+@property UIPercentDrivenInteractiveTransition *interactionController;
+
 @end

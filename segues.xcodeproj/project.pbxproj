@@ -12,7 +12,6 @@
 		839A476119ABD7C50073BAC5 /* CCTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A476019ABD7C50073BAC5 /* CCTransitioningDelegate.m */; };
 		839A476519ABDC350073BAC5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A476419ABDC350073BAC5 /* SecondViewController.m */; };
 		839A476A19ACFF890073BAC5 /* UIView+Explore.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A476919ACFF890073BAC5 /* UIView+Explore.m */; };
-		839A476D19AD28000073BAC5 /* CCInteractiveTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A476C19AD28000073BAC5 /* CCInteractiveTransitioning.m */; };
 		83B774C119AB9ED500B8139A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B774C019AB9ED500B8139A /* main.m */; };
 		83B774C419AB9ED500B8139A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B774C319AB9ED500B8139A /* AppDelegate.m */; };
 		83B774C719AB9ED500B8139A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B774C619AB9ED500B8139A /* ViewController.m */; };
@@ -46,8 +45,6 @@
 		839A476419ABDC350073BAC5 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		839A476819ACFF890073BAC5 /* UIView+Explore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Explore.h"; sourceTree = "<group>"; };
 		839A476919ACFF890073BAC5 /* UIView+Explore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Explore.m"; sourceTree = "<group>"; };
-		839A476B19AD28000073BAC5 /* CCInteractiveTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCInteractiveTransitioning.h; sourceTree = "<group>"; };
-		839A476C19AD28000073BAC5 /* CCInteractiveTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCInteractiveTransitioning.m; sourceTree = "<group>"; };
 		83B774BB19AB9ED500B8139A /* segues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = segues.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B774BF19AB9ED500B8139A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83B774C019AB9ED500B8139A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,8 +95,6 @@
 				839A475D19ABD7B20073BAC5 /* CCPresentationController.m */,
 				839A475F19ABD7C50073BAC5 /* CCTransitioningDelegate.h */,
 				839A476019ABD7C50073BAC5 /* CCTransitioningDelegate.m */,
-				839A476B19AD28000073BAC5 /* CCInteractiveTransitioning.h */,
-				839A476C19AD28000073BAC5 /* CCInteractiveTransitioning.m */,
 			);
 			name = Transition;
 			sourceTree = "<group>";
@@ -326,7 +321,6 @@
 				839A476519ABDC350073BAC5 /* SecondViewController.m in Sources */,
 				839A475E19ABD7B20073BAC5 /* CCPresentationController.m in Sources */,
 				83B774C419AB9ED500B8139A /* AppDelegate.m in Sources */,
-				839A476D19AD28000073BAC5 /* CCInteractiveTransitioning.m in Sources */,
 				839A476A19ACFF890073BAC5 /* UIView+Explore.m in Sources */,
 				83B774C119AB9ED500B8139A /* main.m in Sources */,
 			);

@@ -12,5 +12,4 @@
 
 @property UIView *animatedView;
 
-
 @end

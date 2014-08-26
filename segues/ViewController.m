@@ -25,8 +25,13 @@
     [super viewDidLoad];
     
     _transitioningDelegate = [CCTransitioningDelegate new];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    self.view.backgroundColor = [UIColor redColor];
+    NSLog(@"%@", self.imageView.constraints);
 }
 
 
@@ -43,6 +48,12 @@
         
     }];
     
+}
+
+
+- (void)viewWillLayoutSubviews
+{
+    NSLog(@"laying out subviews");
 }
 
 @end
