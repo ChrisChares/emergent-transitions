@@ -93,7 +93,6 @@
 
 - (void)dismissalTransitionWillBegin
 {
-    
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         
         self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];

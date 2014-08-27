@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setNeedsStatusBarAppearanceUpdate];
     self.titleLabel.text = self.title;
 }
 
@@ -26,6 +27,9 @@
     [super viewDidAppear:animated];
 }
 
+- (UIStatusBarStyle) preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 
 /*
 #pragma mark - Navigation

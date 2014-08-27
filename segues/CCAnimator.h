@@ -10,6 +10,7 @@
 
 @interface CCAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 
+
 @property BOOL isPresenting;
 
 @end

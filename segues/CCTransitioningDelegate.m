@@ -40,10 +40,7 @@
 
 - (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source
 {
-    CCPresentationController *presVC = [[CCPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
-    
-    return presVC;
-    
+    return [[CCPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
 }
 
 
