@@ -12,6 +12,9 @@
 		839A476119ABD7C50073BAC5 /* CCTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A476019ABD7C50073BAC5 /* CCTransitioningDelegate.m */; };
 		839A476519ABDC350073BAC5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A476419ABDC350073BAC5 /* SecondViewController.m */; };
 		839A476A19ACFF890073BAC5 /* UIView+Explore.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A476919ACFF890073BAC5 /* UIView+Explore.m */; };
+		839A47A219AD5BFF0073BAC5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A47A119AD5BFF0073BAC5 /* MapViewController.m */; };
+		839A47A419AD5C4A0073BAC5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839A47A319AD5C4A0073BAC5 /* MapKit.framework */; };
+		839A47A719AD5ED30073BAC5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A47A619AD5ED30073BAC5 /* TableViewController.m */; };
 		83B774C119AB9ED500B8139A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B774C019AB9ED500B8139A /* main.m */; };
 		83B774C419AB9ED500B8139A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B774C319AB9ED500B8139A /* AppDelegate.m */; };
 		83B774C719AB9ED500B8139A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B774C619AB9ED500B8139A /* ViewController.m */; };
@@ -45,6 +48,11 @@
 		839A476419ABDC350073BAC5 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		839A476819ACFF890073BAC5 /* UIView+Explore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Explore.h"; sourceTree = "<group>"; };
 		839A476919ACFF890073BAC5 /* UIView+Explore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Explore.m"; sourceTree = "<group>"; };
+		839A47A019AD5BFF0073BAC5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		839A47A119AD5BFF0073BAC5 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		839A47A319AD5C4A0073BAC5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		839A47A519AD5ED30073BAC5 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		839A47A619AD5ED30073BAC5 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		83B774BB19AB9ED500B8139A /* segues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = segues.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B774BF19AB9ED500B8139A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83B774C019AB9ED500B8139A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				839A47A419AD5C4A0073BAC5 /* MapKit.framework in Frameworks */,
 				D3539B0871B148F29F5F5BC9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +90,7 @@
 		6055B042FE3F4DA99ADDCAF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				839A47A319AD5C4A0073BAC5 /* MapKit.framework */,
 				673CA00B667B4EF983A65DEA /* libPods.a */,
 			);
 			name = Frameworks;
@@ -106,6 +116,10 @@
 				83B774C619AB9ED500B8139A /* ViewController.m */,
 				839A476319ABDC350073BAC5 /* SecondViewController.h */,
 				839A476419ABDC350073BAC5 /* SecondViewController.m */,
+				839A47A019AD5BFF0073BAC5 /* MapViewController.h */,
+				839A47A119AD5BFF0073BAC5 /* MapViewController.m */,
+				839A47A519AD5ED30073BAC5 /* TableViewController.h */,
+				839A47A619AD5ED30073BAC5 /* TableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -232,6 +246,7 @@
 				TargetAttributes = {
 					83B774BA19AB9ED500B8139A = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 895368D53L;
 					};
 					83B774D019AB9ED500B8139A = {
 						CreatedOnToolsVersion = 6.0;
@@ -318,6 +333,8 @@
 				8375E23E19ABD76E0076FEB3 /* CCAnimator.m in Sources */,
 				83B774C719AB9ED500B8139A /* ViewController.m in Sources */,
 				839A476119ABD7C50073BAC5 /* CCTransitioningDelegate.m in Sources */,
+				839A47A719AD5ED30073BAC5 /* TableViewController.m in Sources */,
+				839A47A219AD5BFF0073BAC5 /* MapViewController.m in Sources */,
 				839A476519ABDC350073BAC5 /* SecondViewController.m in Sources */,
 				839A475E19ABD7B20073BAC5 /* CCPresentationController.m in Sources */,
 				83B774C419AB9ED500B8139A /* AppDelegate.m in Sources */,
@@ -438,9 +455,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = segues/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -450,9 +470,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = segues/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

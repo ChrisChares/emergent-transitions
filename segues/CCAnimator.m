@@ -28,15 +28,20 @@
     if (self.isPresenting) {
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
         toView.alpha = 0.0;
- 
         
-        POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
-        alphaAnimation.toValue = @(1.0);
-        alphaAnimation.duration = [self transitionDuration:transitionContext];
-        [alphaAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.25 options:0 animations:^{
+            toView.alpha = 1.0;
+        } completion:^(BOOL finished) {
             [transitionContext completeTransition:YES];
         }];
-        [toView pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
+//        
+//        POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
+//        alphaAnimation.toValue = @(1.0);
+//        alphaAnimation.duration = [self transitionDuration:transitionContext];
+//        [alphaAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
+//            [transitionContext completeTransition:YES];
+//        }];
+//        [toView pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
     }
     else {
         
