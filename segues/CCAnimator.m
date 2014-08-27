@@ -15,11 +15,7 @@
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
     
-    if ( self.isPresenting ) {
-        return 0.5;
-    } else {
-        return 0.5;
-    }
+    return FBTweakValue(@"Transition", @"Both", @"Duration", 0.5, 0.0, 3.0);
     
 }
 
@@ -30,8 +26,11 @@
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
         toView.alpha = 0.0;
         
+        CGFloat delay = FBTweakValue(@"Transition", @"Presentation", @"Chrome Fade Delay", 0.25, 0.0, 1.0);
+        
+        
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
-                              delay:0.25
+                              delay:delay
                             options:0
                          animations:^{
             
