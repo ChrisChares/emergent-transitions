@@ -7,13 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import <Tweaks/FBTweakShakeWindow.h>
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-            
+
+- (UIWindow *)window
+{
+    if (!_window) {
+        _window = [[FBTweakShakeWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    }
+    
+    return _window;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

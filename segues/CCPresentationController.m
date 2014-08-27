@@ -10,6 +10,7 @@
 #import <pop/POP.h>
 #import "UIView+Explore.h"
 #import "CCTransitioningDelegate.h"
+#import <Tweaks/FBTweakInline.h>
 
 #define logRect(z) NSLog(@"{%f, %f, %f, %f}", z.origin.x, z.origin.y, z.size.width, z.size.height)
 
@@ -49,6 +50,7 @@
     [self.containerView insertSubview:self.animatedView belowSubview:self.presentedView];
 
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        
         
         POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
         CGRect contextBounds = [[context containerView] bounds];

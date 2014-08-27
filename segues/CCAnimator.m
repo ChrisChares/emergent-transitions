@@ -9,6 +9,7 @@
 #import "CCAnimator.h"
 #import <pop/POP.h>
 #import "UIView+Explore.h"
+#import <Tweaks/FBTweakInline.h>
 
 @implementation CCAnimator
 
@@ -29,11 +30,16 @@
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
         toView.alpha = 0.0;
         
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.25 options:0 animations:^{
-            toView.alpha = 1.0;
-        } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
-        }];
+        [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                              delay:0.25
+                            options:0
+                         animations:^{
+            
+                             toView.alpha = 1.0;
+                         }
+                         completion:^(BOOL finished) {
+                             [transitionContext completeTransition:YES];
+                         }];
 //        
 //        POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
 //        alphaAnimation.toValue = @(1.0);
@@ -47,10 +53,13 @@
         
         UIView *presentedView = [transitionContext viewForKey:UITransitionContextFromViewKey];
  
+        CGFloat damping = FBTweakValue(@"Transition", @"Dismissal", @"Damping", 0.6, 0.0, 1.0);
+        CGFloat velocity = FBTweakValue(@"Transition", @"Dismissal", @"Velocity", 0.8, 0.0, 1.0);
+        
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                               delay:0.0
-             usingSpringWithDamping:0.6
-              initialSpringVelocity:0.8
+             usingSpringWithDamping:damping
+              initialSpringVelocity:velocity
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
             
