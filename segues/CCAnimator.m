@@ -41,15 +41,24 @@
     else {
         
         UIView *presentedView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-        
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+ 
+        [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                              delay:0.0
+             usingSpringWithDamping:0.6
+              initialSpringVelocity:0.8
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
             
-            presentedView.alpha = 0.0;
+                             presentedView.alpha = 0.0;
+
+        }
+                         completion:^(BOOL finished) {
             
-        } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
+                             [transitionContext completeTransition:YES];
+
         }];
         
+    
 //        POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
 //        alphaAnimation.toValue = @(0.0);
 //        alphaAnimation.duration = [self transitionDuration:transitionContext];

@@ -9,7 +9,6 @@
 #import "CCTransitioningDelegate.h"
 #import "CCAnimator.h"
 #import "CCPresentationController.h"
-#import "CCInteractiveTransitioning.h"
 
 @implementation CCTransitioningDelegate
 

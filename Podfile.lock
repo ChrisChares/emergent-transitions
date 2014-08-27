@@ -2,7 +2,7 @@ PODS:
   - pop (1.0.6)
 
 DEPENDENCIES:
-  - pop (~> 1.0.0)
+  - pop (~> 1.0.6)
 
 SPEC CHECKSUMS:
   pop: e518794da38942c05255eb64b36d894e70cb4f00
