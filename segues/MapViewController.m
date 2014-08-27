@@ -33,7 +33,7 @@
     vc.modalPresentationStyle = UIModalPresentationCustom;
 
     _transitioningDelegate.animatedView = self.mapViewController;
-    _transitioningDelegate.baseViewUserInteractionEnabled = YES;
+//    _transitioningDelegate.baseViewUserInteractionEnabled = YES;
     
     vc.transitioningDelegate = _transitioningDelegate;
     

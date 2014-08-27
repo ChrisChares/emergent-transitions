@@ -10,4 +10,7 @@
 
 @interface SecondViewController : UIViewController
 
+@property NSString *title;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end

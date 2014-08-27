@@ -15,6 +15,7 @@
 		839A47A219AD5BFF0073BAC5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A47A119AD5BFF0073BAC5 /* MapViewController.m */; };
 		839A47A419AD5C4A0073BAC5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839A47A319AD5C4A0073BAC5 /* MapKit.framework */; };
 		839A47A719AD5ED30073BAC5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A47A619AD5ED30073BAC5 /* TableViewController.m */; };
+		839A47AB19AD97B30073BAC5 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A47AA19AD97B30073BAC5 /* ImageCell.m */; };
 		83B774C119AB9ED500B8139A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B774C019AB9ED500B8139A /* main.m */; };
 		83B774C419AB9ED500B8139A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B774C319AB9ED500B8139A /* AppDelegate.m */; };
 		83B774C719AB9ED500B8139A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B774C619AB9ED500B8139A /* ViewController.m */; };
@@ -53,6 +54,8 @@
 		839A47A319AD5C4A0073BAC5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		839A47A519AD5ED30073BAC5 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		839A47A619AD5ED30073BAC5 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		839A47A919AD97B30073BAC5 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		839A47AA19AD97B30073BAC5 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 		83B774BB19AB9ED500B8139A /* segues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = segues.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B774BF19AB9ED500B8139A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83B774C019AB9ED500B8139A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 		839A476219ABDC1C0073BAC5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				839A47A819AD97890073BAC5 /* View */,
 				83B774C519AB9ED500B8139A /* ViewController.h */,
 				83B774C619AB9ED500B8139A /* ViewController.m */,
 				839A476319ABDC350073BAC5 /* SecondViewController.h */,
@@ -131,6 +135,15 @@
 				839A476919ACFF890073BAC5 /* UIView+Explore.m */,
 			);
 			name = UIView;
+			sourceTree = "<group>";
+		};
+		839A47A819AD97890073BAC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				839A47A919AD97B30073BAC5 /* ImageCell.h */,
+				839A47AA19AD97B30073BAC5 /* ImageCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		83B774B219AB9ED500B8139A = {
@@ -332,6 +345,7 @@
 			files = (
 				8375E23E19ABD76E0076FEB3 /* CCAnimator.m in Sources */,
 				83B774C719AB9ED500B8139A /* ViewController.m in Sources */,
+				839A47AB19AD97B30073BAC5 /* ImageCell.m in Sources */,
 				839A476119ABD7C50073BAC5 /* CCTransitioningDelegate.m in Sources */,
 				839A47A719AD5ED30073BAC5 /* TableViewController.m in Sources */,
 				839A47A219AD5BFF0073BAC5 /* MapViewController.m in Sources */,

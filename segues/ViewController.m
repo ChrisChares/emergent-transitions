@@ -9,12 +9,14 @@
 #import "ViewController.h"
 #import "CCTransitioningDelegate.h"
 #import "SecondViewController.h"
+#import "ImageCell.h"
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property CCTransitioningDelegate *transitioningDelegate;
+
+@property NSArray *content;
 
 @end
 
@@ -24,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _content = @[@"batman", @"archer", @"comic", @"puppies", @"lamp"];
+    
     _transitioningDelegate = [CCTransitioningDelegate new];
 }
 
@@ -31,7 +35,44 @@
 {
     [super viewWillAppear:animated];
     
-    NSLog(@"%@", self.imageView.constraints);
+}
+
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.content.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    cell.imageView.image = [UIImage imageNamed:self.content[indexPath.row]];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageCell *cell = (ImageCell *) [self.collectionView cellForItemAtIndexPath:indexPath];
+    SecondViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"second"];
+    
+    vc.title = _content[indexPath.row];
+    
+    _transitioningDelegate.animatedView = cell.imageView;
+    
+    vc.transitioningDelegate = _transitioningDelegate;
+    vc.modalPresentationStyle = UIModalPresentationCustom;
+    
+    [self presentViewController:vc animated:YES completion:^{
+        
+    }];
+
 }
 
 

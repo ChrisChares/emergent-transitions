@@ -26,10 +26,10 @@
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
         toView.alpha = 0.0;
         
-        CGFloat delay = FBTweakValue(@"Transition", @"Presentation", @"Chrome Fade Delay", 0.25, 0.0, 1.0);
+        CGFloat delay = FBTweakValue(@"Transition", @"Presentation", @"Chrome Fade Delay", 0.2, 0.0, 1.0);
         
         
-        [UIView animateWithDuration:[self transitionDuration:transitionContext]
+        [UIView animateWithDuration:0.4
                               delay:delay
                             options:0
                          animations:^{

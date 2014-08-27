@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.titleLabel.text = self.title;
 }
 
 - (void)viewDidAppear:(BOOL)animated

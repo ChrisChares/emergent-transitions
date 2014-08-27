@@ -24,15 +24,28 @@
 @property UITapGestureRecognizer *tapGestureRecognizer;
 @property UIPanGestureRecognizer *panGestureRecognizer;
 @property (weak, readonly) CCTransitioningDelegate *transitioningDelegate;
+@property UIView *dimmingView;
 
 @end
 
 @implementation CCPresentationController
 
+- (instancetype)initWithPresentedViewController:(UIViewController *)presentedViewController presentingViewController:(UIViewController *)presentingViewController {
+    self = [super initWithPresentedViewController:presentedViewController presentingViewController:presentingViewController];
+    if(self) {
+        self.dimmingView = [UIView new];
+        self.dimmingView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:1.0];
+    }
+    return self;
+}
 
 - (void)presentationTransitionWillBegin
 {
     self.animatedView = self.transitioningDelegate.animatedView;
+    
+    self.dimmingView.frame = self.containerView.bounds;
+    self.dimmingView.alpha = 0.0;
+    [self.containerView addSubview:self.dimmingView];
     
     self.presentedView.frame = self.containerView.bounds;
     [self.containerView addSubview:self.presentedView];
@@ -49,6 +62,8 @@
     [self.containerView insertSubview:self.animatedView belowSubview:self.presentedView];
 
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        
+        self.dimmingView.alpha = 1.0;
         
         POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
         CGRect contextBounds = [[context containerView] bounds];
@@ -81,7 +96,8 @@
     
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         
-        self.animatedView.frame = self.animatedViewBaseFrame;
+        self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];
+        self.dimmingView.alpha = 0.0;
         
     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
 
@@ -94,6 +110,7 @@
 {
     if ( completed ) {
         
+        [self.dimmingView removeFromSuperview];
         [self.animatedView removeFromSuperview];
         [self.animatedView setFrame:self.animatedViewBaseFrame];
         [self.animatedView setTranslatesAutoresizingMaskIntoConstraints:YES];
@@ -121,7 +138,7 @@
 
 - (void)containerViewDidLayoutSubviews
 {
-    self.animatedView.frame = self.animatedViewBaseFrame;
+    self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];
 }
 
 
