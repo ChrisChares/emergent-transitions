@@ -41,7 +41,6 @@
 - (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source
 {
     CCPresentationController *presVC = [[CCPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
-    presVC.animatedView = self.animatedView;
     
     return presVC;
     

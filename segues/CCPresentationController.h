@@ -10,6 +10,5 @@
 
 @interface CCPresentationController : UIPresentationController
 
-@property UIView *animatedView;
 
 @end

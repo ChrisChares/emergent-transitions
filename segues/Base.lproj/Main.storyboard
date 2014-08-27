@@ -110,7 +110,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="batman_treadmill" translatesAutoresizingMaskIntoConstraints="NO" id="aal-7J-HHT">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="archer" translatesAutoresizingMaskIntoConstraints="NO" id="P9a-3u-YDf">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="243" id="Xcu-Jb-qPF">
+                                        <variation key="widthClass=compact" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Xcu-Jb-qPF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Xcu-Jb-qPF"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ysN-1X-on6" appends="YES" id="1yL-8f-gOK"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="batman_treadmill" translatesAutoresizingMaskIntoConstraints="NO" id="aal-7J-HHT">
                                 <rect key="frame" x="159" y="167" width="283" height="266"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -118,6 +140,7 @@
                                     <constraint firstAttribute="height" constant="240" id="M0A-AR-sMO">
                                         <variation key="widthClass=compact" constant="180"/>
                                     </constraint>
+                                    <constraint firstAttribute="width" constant="148" id="Ss6-HP-ZF9"/>
                                     <constraint firstAttribute="width" constant="240" id="UzP-7n-7BU">
                                         <variation key="widthClass=compact" constant="180"/>
                                     </constraint>
@@ -126,6 +149,7 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="M0A-AR-sMO"/>
+                                        <exclude reference="Ss6-HP-ZF9"/>
                                         <exclude reference="UzP-7n-7BU"/>
                                     </mask>
                                 </variation>
@@ -133,61 +157,92 @@
                                     <mask key="constraints">
                                         <exclude reference="42x-8z-1zc"/>
                                         <exclude reference="M0A-AR-sMO"/>
-                                        <include reference="UzP-7n-7BU"/>
+                                        <include reference="Ss6-HP-ZF9"/>
+                                        <exclude reference="UzP-7n-7BU"/>
+                                        <exclude reference="gNS-07-Lqx"/>
                                     </mask>
                                 </variation>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="dDb-lJ-jIi" appends="YES" id="mQ7-kv-bPh"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkJ-RC-dcd">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="177" y="480" width="46" height="30"/>
-                                </variation>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0WN-ql-4qR">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="177" y="422" width="46" height="30"/>
-                                </variation>
-                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="lamp" translatesAutoresizingMaskIntoConstraints="NO" id="5my-bF-eBF">
+                                <rect key="frame" x="0.0" y="-1168" width="876" height="1168"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="PNm-GB-V8G" appends="YES" id="fsR-uM-HHT"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="P9a-3u-YDf" firstAttribute="top" secondItem="aal-7J-HHT" secondAttribute="bottom" constant="8" id="6bZ-hx-W4Z"/>
                             <constraint firstAttribute="centerY" secondItem="aal-7J-HHT" secondAttribute="centerY" id="8dk-ya-Npg"/>
                             <constraint firstAttribute="centerY" secondItem="aal-7J-HHT" secondAttribute="centerY" id="Aqq-fA-LRW"/>
+                            <constraint firstItem="5my-bF-eBF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="CUU-Rj-a9m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5my-bF-eBF" secondAttribute="trailing" constant="8" id="IQB-HI-7fu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P9a-3u-YDf" secondAttribute="trailing" id="N9E-nO-Xqx">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="5my-bF-eBF" firstAttribute="leading" secondItem="aal-7J-HHT" secondAttribute="trailing" constant="8" id="Own-kc-Z2p"/>
                             <constraint firstAttribute="centerX" secondItem="aal-7J-HHT" secondAttribute="centerX" id="VbX-An-Ib1"/>
                             <constraint firstAttribute="centerX" secondItem="aal-7J-HHT" secondAttribute="centerX" id="ZGd-Dk-gXQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aal-7J-HHT" secondAttribute="trailing" constant="180" id="bqe-dr-vg7"/>
+                            <constraint firstItem="P9a-3u-YDf" firstAttribute="top" secondItem="5my-bF-eBF" secondAttribute="bottom" constant="8" id="dym-Fm-ZZe"/>
+                            <constraint firstItem="aal-7J-HHT" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="gRd-gj-T9F"/>
+                            <constraint firstItem="P9a-3u-YDf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="qB0-2b-cgb">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="P9a-3u-YDf" secondAttribute="bottom" id="rAE-6J-a3P">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="aal-7J-HHT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="sX7-Qf-TIh">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
                             <constraint firstItem="aal-7J-HHT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="180" id="uFj-H1-OZI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="BkJ-RC-dcd"/>
-                                <exclude reference="0WN-ql-4qR"/>
+                                <exclude reference="P9a-3u-YDf"/>
+                                <exclude reference="5my-bF-eBF"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="8dk-ya-Npg"/>
                                 <exclude reference="ZGd-Dk-gXQ"/>
                                 <exclude reference="bqe-dr-vg7"/>
+                                <exclude reference="gRd-gj-T9F"/>
+                                <exclude reference="sX7-Qf-TIh"/>
                                 <exclude reference="uFj-H1-OZI"/>
+                                <exclude reference="CUU-Rj-a9m"/>
+                                <exclude reference="IQB-HI-7fu"/>
+                                <exclude reference="Own-kc-Z2p"/>
+                                <exclude reference="6bZ-hx-W4Z"/>
+                                <exclude reference="N9E-nO-Xqx"/>
+                                <exclude reference="dym-Fm-ZZe"/>
+                                <exclude reference="qB0-2b-cgb"/>
+                                <exclude reference="rAE-6J-a3P"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="BkJ-RC-dcd"/>
-                                <include reference="0WN-ql-4qR"/>
+                                <include reference="P9a-3u-YDf"/>
+                                <include reference="5my-bF-eBF"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="8dk-ya-Npg"/>
-                                <include reference="ZGd-Dk-gXQ"/>
+                                <exclude reference="8dk-ya-Npg"/>
+                                <exclude reference="Aqq-fA-LRW"/>
+                                <exclude reference="VbX-An-Ib1"/>
+                                <exclude reference="ZGd-Dk-gXQ"/>
+                                <include reference="gRd-gj-T9F"/>
+                                <include reference="sX7-Qf-TIh"/>
+                                <include reference="CUU-Rj-a9m"/>
+                                <include reference="IQB-HI-7fu"/>
+                                <include reference="Own-kc-Z2p"/>
+                                <include reference="6bZ-hx-W4Z"/>
+                                <include reference="N9E-nO-Xqx"/>
+                                <include reference="dym-Fm-ZZe"/>
+                                <include reference="qB0-2b-cgb"/>
+                                <include reference="rAE-6J-a3P"/>
                             </mask>
                         </variation>
                     </view>
@@ -200,6 +255,16 @@
                 <tapGestureRecognizer id="dDb-lJ-jIi">
                     <connections>
                         <action selector="imageTapped:" destination="vXZ-lx-hvc" id="YFx-DV-8na"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ysN-1X-on6">
+                    <connections>
+                        <action selector="imageTapped:" destination="vXZ-lx-hvc" id="3sZ-ql-Dhz"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="PNm-GB-V8G">
+                    <connections>
+                        <action selector="imageTapped:" destination="vXZ-lx-hvc" id="twD-0a-0kp"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -422,6 +487,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="archer" width="800" height="600"/>
         <image name="batman_treadmill" width="250" height="361"/>
+        <image name="lamp" width="876" height="1168"/>
     </resources>
 </document>

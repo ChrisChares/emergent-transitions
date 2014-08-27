@@ -18,22 +18,21 @@
 
 @interface CCPresentationController()
 
-@property UIView *snapshotView;
-
 @property (weak, nonatomic) UIView *animatedViewSuperView;
 @property CGRect animatedViewBaseFrame;
-
+@property UIView *animatedView;
 @property UITapGestureRecognizer *tapGestureRecognizer;
 @property UIPanGestureRecognizer *panGestureRecognizer;
+@property (weak, readonly) CCTransitioningDelegate *transitioningDelegate;
 
 @end
-
 
 @implementation CCPresentationController
 
 
 - (void)presentationTransitionWillBegin
 {
+    self.animatedView = self.transitioningDelegate.animatedView;
     
     self.presentedView.frame = self.containerView.bounds;
     [self.containerView addSubview:self.presentedView];
@@ -51,7 +50,6 @@
 
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         
-        
         POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
         CGRect contextBounds = [[context containerView] bounds];
         frameAnimation.toValue = [NSValue valueWithCGRect:contextBounds];
@@ -66,7 +64,9 @@
 
 - (void)presentationTransitionDidEnd:(BOOL)completed
 {
-    if ( completed ) {
+    BOOL baseViewUserInteractionEnabled = self.transitioningDelegate.baseViewUserInteractionEnabled;
+    
+    if ( completed && ! baseViewUserInteractionEnabled ) {
         _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentedViewTapped:)];
         [self.presentedView addGestureRecognizer:_tapGestureRecognizer];
         
@@ -81,24 +81,9 @@
     
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         
-        
         self.animatedView.frame = self.animatedViewBaseFrame;
-
-        
-//        [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.85 initialSpringVelocity:0.5 options:0 animations:^{
-//            
-//            
-//        } completion:NULL];
-//        POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-//        frameAnimation.toValue = [NSValue valueWithCGRect:self.animatedViewBaseFrame];
-//        frameAnimation.velocity = [NSValue valueWithCGRect:CGRectZero];
-//        [frameAnimation setCompletionBlock:^(POPAnimation *animation, BOOL completed) {
-//            
-//        }];
-//        [self.animatedView pop_addAnimation:frameAnimation forKey:@"frameAnimation"];
         
     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-//        [context completeTransition:YES];
 
     }];
 
@@ -116,17 +101,17 @@
         
         if ( self.presentedView ) {
             [self.presentedView removeGestureRecognizer:_tapGestureRecognizer];
+            _tapGestureRecognizer = nil;
+            
             [self.presentedView removeGestureRecognizer:_panGestureRecognizer];
+            _tapGestureRecognizer = nil;
+            
             [self.presentedView removeFromSuperview];
         }
     } else {
         
         NSLog(@"failed to complete yo");
     }
-    
-    
-
-
 }
 
 
@@ -137,9 +122,6 @@
 - (void)containerViewDidLayoutSubviews
 {
     self.animatedView.frame = self.animatedViewBaseFrame;
-    
-//    [super containerViewDidLayoutSubviews];
-
 }
 
 
@@ -151,32 +133,34 @@
 - (void)presentedViewPanned:(UIPanGestureRecognizer *)gesture
 {
     CGPoint translation = [gesture translationInView:self.presentedView];
-    CCTransitioningDelegate *transitioningDelegate = self.presentedViewController.transitioningDelegate;
     
-    CGFloat percentage = ABS(translation.y / ( CGRectGetHeight(self.presentedView.bounds) / 2) );
+    CGFloat scale = FBTweakValue(@"Transition", @"Dismiss", @"Scale", 1, 0, 10);
+    
+    CGFloat percentage = ABS(translation.y / ( CGRectGetHeight(self.presentedView.bounds) / scale) );
     percentage = MIN(percentage, 1.0);
 
     if (gesture.state == UIGestureRecognizerStateBegan) {
-            transitioningDelegate.interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
+            self.transitioningDelegate.interactionController = [[UIPercentDrivenInteractiveTransition alloc] init];
             [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
     }
     else if (gesture.state == UIGestureRecognizerStateChanged) {
         
 
         NSLog(@"%f", percentage);
-        [transitioningDelegate.interactionController updateInteractiveTransition:percentage];
+        [self.transitioningDelegate.interactionController updateInteractiveTransition:percentage];
     }
     else if (gesture.state == UIGestureRecognizerStateEnded) {
-        [transitioningDelegate.interactionController finishInteractiveTransition];
-//        if (percentage > TRANSLATION_THRESHOLD) {
-//            [transitioningDelegate.interactionController finishInteractiveTransition];
-//        } else {
-//            [transitioningDelegate.interactionController cancelInteractiveTransition];
-//        }
         
-        
-        transitioningDelegate.interactionController = nil;
+        [self.transitioningDelegate.interactionController finishInteractiveTransition];
+        self.transitioningDelegate.interactionController = nil;
     }
+}
+
+
+
+- (CCTransitioningDelegate *)transitioningDelegate
+{
+    return self.presentedViewController.transitioningDelegate;
 }
 
 @end

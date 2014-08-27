@@ -39,14 +39,6 @@
                          completion:^(BOOL finished) {
                              [transitionContext completeTransition:YES];
                          }];
-//        
-//        POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
-//        alphaAnimation.toValue = @(1.0);
-//        alphaAnimation.duration = [self transitionDuration:transitionContext];
-//        [alphaAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
-//            [transitionContext completeTransition:YES];
-//        }];
-//        [toView pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
     }
     else {
         
@@ -70,23 +62,8 @@
                              [transitionContext completeTransition:YES];
 
         }];
-        
-    
-//        POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
-//        alphaAnimation.toValue = @(0.0);
-//        alphaAnimation.duration = [self transitionDuration:transitionContext];
-//        [alphaAnimation setCompletionBlock:^(POPAnimation *animation, BOOL finished) {
-//            [transitionContext completeTransition:YES];
-//            [presentedView removeFromSuperview];
-//        }];
-//        [presentedView pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
-        
+
     }
 }
-
-//- (void)animationEnded:(BOOL)transitionCompleted
-//{
-//    
-//}
 
 @end

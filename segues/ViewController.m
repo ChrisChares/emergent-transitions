@@ -39,7 +39,7 @@
     
     SecondViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"second"];
 
-    _transitioningDelegate.animatedView = self.imageView;
+    _transitioningDelegate.animatedView = sender.view;
 
     vc.transitioningDelegate = _transitioningDelegate;
     vc.modalPresentationStyle = UIModalPresentationCustom;
