@@ -27,7 +27,7 @@
     [super viewDidLoad];
     
     _content = @[@"batman", @"archer", @"comic", @"puppies", @"lamp"];
-    
+    [self configureCollectionViewForTraitCollection:self.traitCollection];
     _transitioningDelegate = [CCTransitioningDelegate new];
 }
 
@@ -86,9 +86,27 @@
 }
 
 
-- (void)viewWillLayoutSubviews
+- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    NSLog(@"laying out subviews");
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        [self configureCollectionViewForTraitCollection:newCollection];
+    } completion:NULL];
 }
 
+
+- (void)configureCollectionViewForTraitCollection:(UITraitCollection *)newCollection
+{
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    
+    UICollectionViewScrollDirection newDirection;
+    
+    if ( newCollection.verticalSizeClass == UIUserInterfaceSizeClassRegular ) {
+        newDirection = UICollectionViewScrollDirectionVertical;
+    } else {
+        newDirection = UICollectionViewScrollDirectionHorizontal;
+    }
+    flowLayout.scrollDirection = newDirection;
+
+
+}
 @end

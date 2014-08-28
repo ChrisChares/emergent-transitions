@@ -25,6 +25,7 @@
 @property UIPanGestureRecognizer *panGestureRecognizer;
 @property (weak, readonly) CCTransitioningDelegate *transitioningDelegate;
 @property UIView *dimmingView;
+@property BOOL presented;
 
 @end
 
@@ -43,6 +44,8 @@
 
 - (void)presentationTransitionWillBegin
 {
+    self.presented = YES;
+
     self.animatedView = self.transitioningDelegate.animatedView;
     
     self.dimmingView.frame = self.containerView.bounds;
@@ -84,18 +87,25 @@
 {
     BOOL baseViewUserInteractionEnabled = self.transitioningDelegate.baseViewUserInteractionEnabled;
     
-    if ( completed && ! baseViewUserInteractionEnabled ) {
-        _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentedViewTapped:)];
-        [self.presentedView addGestureRecognizer:_tapGestureRecognizer];
-        
-        _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(presentedViewPanned:)];
-        [self.presentedView addGestureRecognizer:_panGestureRecognizer];
+    
+    if ( completed ) {
+        if ( ! baseViewUserInteractionEnabled ) {
+            _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentedViewTapped:)];
+            [self.presentedView addGestureRecognizer:_tapGestureRecognizer];
+            
+            _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(presentedViewPanned:)];
+            [self.presentedView addGestureRecognizer:_panGestureRecognizer];
+        }
+
     }
-}
+        
+     }
 
 
 - (void)dismissalTransitionWillBegin
 {
+    self.presented = NO;
+
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         
         self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];
@@ -115,11 +125,13 @@
     
     if ( completed ) {
         
+        
         [self.dimmingView removeFromSuperview];
         [self.animatedView removeFromSuperview];
         [self.animatedView setFrame:self.animatedViewBaseFrame];
         [self.animatedView setTranslatesAutoresizingMaskIntoConstraints:YES];
         [self.animatedViewSuperView addSubview:self.animatedView];
+        self.animatedView = nil;
         
         if ( self.presentedView ) {
             [self.presentedView removeGestureRecognizer:_tapGestureRecognizer];
@@ -149,7 +161,11 @@
 //    I'm not entirely sure why this is necessary.  Without this line the view will relocate to {0,0}
 //    when added to the containerView, before starting the presentation animation.  Possibly due to a lack of autolayout
 //    constraints?
-    self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];
+    if ( self.presented ) {
+        self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];
+    } else {
+        self.animatedView.frame = [self frameOfPresentedViewInContainerView];
+    }
 }
 
 #pragma mark - UIGestureRecognizers
@@ -204,6 +220,16 @@
 - (CCTransitioningDelegate *)transitioningDelegate
 {
     return self.presentedViewController.transitioningDelegate;
+}
+
+- (BOOL)shouldPresentInFullscreen
+{
+    return YES;
+}
+
+- (BOOL)shouldRemovePresentersView
+{
+    return NO;
 }
 
 @end
