@@ -44,7 +44,6 @@
 
 - (void)presentationTransitionWillBegin
 {
-    self.presented = YES;
 
     self.animatedView = self.transitioningDelegate.animatedView;
     
@@ -89,6 +88,8 @@
     
     
     if ( completed ) {
+        self.presented = YES;
+
         if ( ! baseViewUserInteractionEnabled ) {
             _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentedViewTapped:)];
             [self.presentedView addGestureRecognizer:_tapGestureRecognizer];
@@ -104,7 +105,6 @@
 
 - (void)dismissalTransitionWillBegin
 {
-    self.presented = NO;
 
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         
@@ -124,7 +124,8 @@
 //  Cancelling the interactive transition is disabled at the moment
     
     if ( completed ) {
-        
+        self.presented = NO;
+
         
         [self.dimmingView removeFromSuperview];
         [self.animatedView removeFromSuperview];
@@ -151,6 +152,10 @@
 
 #pragma mark - Layout
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    NSLog(@"Transitioning yo");
+}
 
 - (CGRect)frameOfPresentedViewInContainerView {
     return self.containerView.bounds;
@@ -161,7 +166,8 @@
 //    I'm not entirely sure why this is necessary.  Without this line the view will relocate to {0,0}
 //    when added to the containerView, before starting the presentation animation.  Possibly due to a lack of autolayout
 //    constraints?
-    if ( self.presented ) {
+    NSLog(@"Did layout subviews");
+    if ( ! self.presented ) {
         self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];
     } else {
         self.animatedView.frame = [self frameOfPresentedViewInContainerView];
@@ -214,6 +220,8 @@
 
     }
 }
+
+
 
 #pragma mark - Properties
 
