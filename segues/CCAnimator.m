@@ -23,6 +23,7 @@
     if (self.isPresenting)
     {
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+        toView.backgroundColor = [UIColor clearColor];
         toView.alpha = 0.0;
         CGFloat delay = FBTweakValue(@"Transition", @"Presentation", @"Chrome Fade Delay", 0.2, 0.0, 1.0);
         [UIView animateWithDuration:0.4

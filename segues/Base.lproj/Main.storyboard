@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bG5-UW-M82">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bG5-UW-M82">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -45,7 +45,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapViewController" destination="T5n-mq-0bD" id="JsA-Tc-E9m"/>
+                        <outlet property="mapView" destination="T5n-mq-0bD" id="nDa-xJ-rvf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m46-BX-gCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,10 +264,10 @@
                                 <exclude reference="Sko-8J-Oas"/>
                                 <exclude reference="Wxp-aY-hIX"/>
                                 <exclude reference="aaM-CH-muR"/>
-                                <exclude reference="JzR-07-vEy"/>
-                                <exclude reference="PUs-XZ-0uQ"/>
                                 <exclude reference="3cK-vF-xt5"/>
                                 <exclude reference="42i-f3-7Jh"/>
+                                <exclude reference="JzR-07-vEy"/>
+                                <exclude reference="PUs-XZ-0uQ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -279,10 +279,10 @@
                                 <include reference="Sko-8J-Oas"/>
                                 <include reference="Wxp-aY-hIX"/>
                                 <include reference="aaM-CH-muR"/>
-                                <include reference="JzR-07-vEy"/>
-                                <exclude reference="PUs-XZ-0uQ"/>
                                 <include reference="3cK-vF-xt5"/>
                                 <exclude reference="42i-f3-7Jh"/>
+                                <include reference="JzR-07-vEy"/>
+                                <exclude reference="PUs-XZ-0uQ"/>
                             </mask>
                         </variation>
                     </view>
@@ -293,6 +293,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ZW-b6-XlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1284" y="-695"/>
+        </scene>
+        <!--Map Detail View Controller-->
+        <scene sceneID="LSe-hu-K43">
+            <objects>
+                <viewController storyboardIdentifier="mapDetail" id="8dL-1Q-A4a" customClass="MapDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h2g-PR-0tb"/>
+                        <viewControllerLayoutGuide type="bottom" id="cQG-Ok-IEJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HKC-hf-LYy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ID0-V4-VcO">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="XCi-8Y-fi8"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Close" id="g4P-MI-JpV">
+                                        <connections>
+                                            <action selector="close:" destination="8dL-1Q-A4a" id="LHA-Yu-WOa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="N7p-zm-VZV"/>
+                                    <barButtonItem title="My Location" id="47w-wY-VlN"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ID0-V4-VcO" secondAttribute="trailing" constant="-16" id="2Ca-Ow-bWZ"/>
+                            <constraint firstItem="cQG-Ok-IEJ" firstAttribute="top" secondItem="ID0-V4-VcO" secondAttribute="bottom" id="ftF-Tt-0td"/>
+                            <constraint firstItem="ID0-V4-VcO" firstAttribute="leading" secondItem="HKC-hf-LYy" secondAttribute="leadingMargin" constant="-16" id="kBU-28-wXr"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C0B-EC-z5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1237" y="-49"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Jh3-H7-GCh">

@@ -29,15 +29,12 @@
 
 - (IBAction)zoom:(id)sender {
     
-    UIViewController *vc = [[UIViewController alloc] init];
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"mapDetail"];
     vc.modalPresentationStyle = UIModalPresentationCustom;
 
-    _transitioningDelegate.animatedView = self.mapViewController;
-//    _transitioningDelegate.baseViewUserInteractionEnabled = YES;
-    
+    _transitioningDelegate.animatedView = self.mapView;
+    _transitioningDelegate.baseViewUserInteractionEnabled = YES;
     vc.transitioningDelegate = _transitioningDelegate;
-    
-    
     
     [self presentViewController:vc animated:YES completion:^{
         
