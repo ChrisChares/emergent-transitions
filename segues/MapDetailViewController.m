@@ -45,6 +45,10 @@
         
     }];
 }
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"GETTING TOUCHED BITFCH");
+}
 
 /*
 #pragma mark - Navigation

@@ -11,3 +11,9 @@ When a new view is presented, the heirarchy looks as follows
 	<UIView>[Presented View]</UIView>
 </UITransitionView>
 ````
+
+##Roadmap
+
++ Rotation
++ Emergent view interaction (Map is a good example)
++ Cancelling interactive pop transitions

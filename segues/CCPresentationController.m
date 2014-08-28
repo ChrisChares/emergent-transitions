@@ -104,8 +104,6 @@
     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
 
     }];
-
- 
 }
 
 - (void)dismissalTransitionDidEnd:(BOOL)completed
@@ -137,6 +135,7 @@
         NSLog(@"failed to complete yo");
     }
 }
+
 
 #pragma mark - Layout
 

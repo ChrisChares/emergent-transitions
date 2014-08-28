@@ -10,7 +10,7 @@
 
 @interface CCTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate>
 
-@property UIView *animatedView;
+@property (weak, nonatomic) UIView *animatedView;
 
 @property BOOL baseViewUserInteractionEnabled;
 
