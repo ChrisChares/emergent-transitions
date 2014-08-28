@@ -11,6 +11,7 @@
 @interface CCTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate>
 
 @property UIView *animatedView;
+
 @property BOOL baseViewUserInteractionEnabled;
 
 @property UIPercentDrivenInteractiveTransition *interactionController;

@@ -99,7 +99,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8375E23B19ABD74F0076FEB3 /* Transition */ = {
+		8375E23B19ABD74F0076FEB3 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
 				8375E23C19ABD76E0076FEB3 /* CCAnimator.h */,
@@ -109,13 +109,13 @@
 				839A475F19ABD7C50073BAC5 /* CCTransitioningDelegate.h */,
 				839A476019ABD7C50073BAC5 /* CCTransitioningDelegate.m */,
 			);
-			name = Transition;
+			name = Transitions;
 			sourceTree = "<group>";
 		};
-		839A476219ABDC1C0073BAC5 /* View Controllers */ = {
+		839A476219ABDC1C0073BAC5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				839A47A819AD97890073BAC5 /* View */,
+				839A47A819AD97890073BAC5 /* Views */,
 				83B774C519AB9ED500B8139A /* ViewController.h */,
 				83B774C619AB9ED500B8139A /* ViewController.m */,
 				839A476319ABDC350073BAC5 /* SecondViewController.h */,
@@ -125,7 +125,7 @@
 				839A47A519AD5ED30073BAC5 /* TableViewController.h */,
 				839A47A619AD5ED30073BAC5 /* TableViewController.m */,
 			);
-			name = "View Controllers";
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		839A476619ACFED60073BAC5 /* Helpers */ = {
@@ -137,13 +137,13 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		839A47A819AD97890073BAC5 /* View */ = {
+		839A47A819AD97890073BAC5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				839A47A919AD97B30073BAC5 /* ImageCell.h */,
 				839A47AA19AD97B30073BAC5 /* ImageCell.m */,
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		83B774B219AB9ED500B8139A = {
@@ -170,9 +170,9 @@
 		83B774BD19AB9ED500B8139A /* segues */ = {
 			isa = PBXGroup;
 			children = (
-				8375E23B19ABD74F0076FEB3 /* Transition */,
+				8375E23B19ABD74F0076FEB3 /* Transitions */,
 				839A476619ACFED60073BAC5 /* Helpers */,
-				839A476219ABDC1C0073BAC5 /* View Controllers */,
+				839A476219ABDC1C0073BAC5 /* Controllers */,
 				83B774C219AB9ED500B8139A /* AppDelegate.h */,
 				83B774C319AB9ED500B8139A /* AppDelegate.m */,
 				83B774C819AB9ED500B8139A /* Main.storyboard */,
@@ -211,9 +211,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		83B774BA19AB9ED500B8139A /* segues */ = {
+		83B774BA19AB9ED500B8139A /* prototype */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83B774DB19AB9ED500B8139A /* Build configuration list for PBXNativeTarget "segues" */;
+			buildConfigurationList = 83B774DB19AB9ED500B8139A /* Build configuration list for PBXNativeTarget "prototype" */;
 			buildPhases = (
 				304A584E19EF48C6BB77A216 /* Check Pods Manifest.lock */,
 				83B774B719AB9ED500B8139A /* Sources */,
@@ -225,7 +225,7 @@
 			);
 			dependencies = (
 			);
-			name = segues;
+			name = prototype;
 			productName = segues;
 			productReference = 83B774BB19AB9ED500B8139A /* segues.app */;
 			productType = "com.apple.product-type.application";
@@ -280,7 +280,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				83B774BA19AB9ED500B8139A /* segues */,
+				83B774BA19AB9ED500B8139A /* prototype */,
 				83B774D019AB9ED500B8139A /* seguesTests */,
 			);
 		};
@@ -370,7 +370,7 @@
 /* Begin PBXTargetDependency section */
 		83B774D319AB9ED500B8139A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 83B774BA19AB9ED500B8139A /* segues */;
+			target = 83B774BA19AB9ED500B8139A /* prototype */;
 			targetProxy = 83B774D219AB9ED500B8139A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -539,7 +539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83B774DB19AB9ED500B8139A /* Build configuration list for PBXNativeTarget "segues" */ = {
+		83B774DB19AB9ED500B8139A /* Build configuration list for PBXNativeTarget "prototype" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83B774DC19AB9ED500B8139A /* Debug */,

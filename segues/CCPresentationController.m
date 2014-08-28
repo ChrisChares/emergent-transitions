@@ -14,7 +14,7 @@
 
 #define logRect(z) NSLog(@"{%f, %f, %f, %f}", z.origin.x, z.origin.y, z.size.width, z.size.height)
 
-#define TRANSLATION_THRESHOLD .25
+#define TRANSLATION_THRESHOLD .10
 
 @interface CCPresentationController()
 
@@ -67,6 +67,7 @@
         
         self.dimmingView.alpha = 1.0;
         
+//        Using POP until I can figure out how to take this out
         POPSpringAnimation *frameAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
         CGRect contextBounds = [[context containerView] bounds];
         frameAnimation.toValue = [NSValue valueWithCGRect:contextBounds];
@@ -109,6 +110,11 @@
 
 - (void)dismissalTransitionDidEnd:(BOOL)completed
 {
+//  As far as I can tell, UIPresentationController is bugged,
+//  completed is NEVER false.  Even when the interaction transition is cancelled,
+//  which would seem to be the whole reason for the parameter.
+//  Cancelling the interactive transition is disabled at the moment
+    
     if ( completed ) {
         
         [self.dimmingView removeFromSuperview];
@@ -142,7 +148,7 @@
 - (void)containerViewDidLayoutSubviews
 {
 //    I'm not entirely sure why this is necessary.  Without this line the view will relocate to {0,0}
-//    when added to the containerView, before starting the presentation animation.  Most likely due to a lack of autolayout
+//    when added to the containerView, before starting the presentation animation.  Possibly due to a lack of autolayout
 //    constraints?
     self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];
 }
@@ -174,9 +180,23 @@
         [self.transitioningDelegate.interactionController updateInteractiveTransition:percentage];
     }
     else if (gesture.state == UIGestureRecognizerStateEnded) {
-        
+  
         [self.transitioningDelegate.interactionController finishInteractiveTransition];
         self.transitioningDelegate.interactionController = nil;
+        
+//        Disabled for UIPresentationController bug
+//        if ( percentage > TRANSLATION_THRESHOLD ) {
+//            NSLog(@"Interaction completed transition");
+//            [self.transitioningDelegate.interactionController finishInteractiveTransition];
+//            self.transitioningDelegate.interactionController = nil;
+//        } else {
+//            [self.transitioningDelegate.interactionController cancelInteractiveTransition];
+//            NSLog(@"Interaction failed to complete transition");
+//
+//        }
+        
+        
+
     }
 }
 
