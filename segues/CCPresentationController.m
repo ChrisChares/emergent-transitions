@@ -39,6 +39,8 @@
     return self;
 }
 
+#pragma mark - Presentation Lifecycle
+
 - (void)presentationTransitionWillBegin
 {
     self.animatedView = self.transitioningDelegate.animatedView;
@@ -130,6 +132,8 @@
     }
 }
 
+#pragma mark - Layout
+
 
 - (CGRect)frameOfPresentedViewInContainerView {
     return self.containerView.bounds;
@@ -137,9 +141,13 @@
 
 - (void)containerViewDidLayoutSubviews
 {
+//    I'm not entirely sure why this is necessary.  Without this line the view will relocate to {0,0}
+//    when added to the containerView, before starting the presentation animation.  Most likely due to a lack of autolayout
+//    constraints?
     self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];
 }
 
+#pragma mark - UIGestureRecognizers
 
 - (void)presentedViewTapped:(UITapGestureRecognizer *)gesture
 {
@@ -172,7 +180,7 @@
     }
 }
 
-
+#pragma mark - Properties
 
 - (CCTransitioningDelegate *)transitioningDelegate
 {

@@ -128,13 +128,13 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		839A476619ACFED60073BAC5 /* UIView */ = {
+		839A476619ACFED60073BAC5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				839A476819ACFF890073BAC5 /* UIView+Explore.h */,
 				839A476919ACFF890073BAC5 /* UIView+Explore.m */,
 			);
-			name = UIView;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		839A47A819AD97890073BAC5 /* View */ = {
@@ -170,9 +170,9 @@
 		83B774BD19AB9ED500B8139A /* segues */ = {
 			isa = PBXGroup;
 			children = (
-				839A476619ACFED60073BAC5 /* UIView */,
-				839A476219ABDC1C0073BAC5 /* View Controllers */,
 				8375E23B19ABD74F0076FEB3 /* Transition */,
+				839A476619ACFED60073BAC5 /* Helpers */,
+				839A476219ABDC1C0073BAC5 /* View Controllers */,
 				83B774C219AB9ED500B8139A /* AppDelegate.h */,
 				83B774C319AB9ED500B8139A /* AppDelegate.m */,
 				83B774C819AB9ED500B8139A /* Main.storyboard */,

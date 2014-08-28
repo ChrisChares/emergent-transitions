@@ -13,34 +13,25 @@
 - (void)logSubviews
 {
     [self logSubviews:self indentLevel:0];
-    
-    
 }
-
 
 - (void)logSubviews:(UIView *)view indentLevel:(int)level
 {
-    NSLog(@"%@%@", [self indentForLevel:level], view);
-    
+    NSLog(@"%@%@", [self indentStringForLevel:level], view);
     if ( view && view.subviews ) {
         for ( UIView *_view in view.subviews ) {
             [self logSubviews:_view indentLevel:level+1];
         }
     }
-
 }
 
-- (NSString *)indentForLevel:(int)level {
-    
+- (NSString *)indentStringForLevel:(int)level
+{
     NSMutableString *string = [[NSMutableString alloc] initWithString:@""];
-    
     for (int i=0; i<level; i++) {
         [string appendString:@"  "];
     }
-    
     return string;
-    
 }
-
 
 @end
