@@ -152,22 +152,17 @@
 
 #pragma mark - Layout
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
-    NSLog(@"Transitioning yo");
-}
-
 - (CGRect)frameOfPresentedViewInContainerView {
     return self.containerView.bounds;
 }
 
 - (void)containerViewDidLayoutSubviews
 {
-//    I'm not entirely sure why this is necessary.  Without this line the view will relocate to {0,0}
-//    when added to the containerView, before starting the presentation animation.  Possibly due to a lack of autolayout
-//    constraints?
-    NSLog(@"Did layout subviews");
+
     if ( ! self.presented ) {
+        //    I'm not entirely sure why this is necessary.  Without this line the view will relocate to {0,0}
+        //    when added to the containerView, before starting the presentation animation.  Possibly due to a lack of autolayout
+        //    constraints?
         self.animatedView.frame = [self.containerView convertRect:self.animatedViewBaseFrame fromView:self.animatedViewSuperView];
     } else {
         self.animatedView.frame = [self frameOfPresentedViewInContainerView];
