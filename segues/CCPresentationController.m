@@ -48,7 +48,7 @@
     self.animatedView = self.transitioningDelegate.animatedView;
     
     self.dimmingView.frame = self.containerView.bounds;
-    self.dimmingView.alpha = 0.0;
+    self.dimmingView.alphelha = 0.0;
     [self.containerView addSubview:self.dimmingView];
     
     self.presentedView.frame = self.containerView.bounds;
